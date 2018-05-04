@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Takesavillage</title>
+    <title>Takes A Village</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,9 @@
   </head>
 
   <body>
+
+    <%= link_to 'Profile', profile_path %> | <%= link_to 'Edit', profile_edit_path %>
+
     <%= yield %>
   </body>
 </html>
