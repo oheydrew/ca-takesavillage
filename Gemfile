@@ -8,6 +8,35 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
+
+# ------------------------------------- NON DEFAULT GEMS
+
+# Use devise for user authentication 
+gem 'devise', '~> 4.4', '>= 4.4.3'
+# Use pundit for user authorization
+gem 'pundit'
+# Use dotenv-rails for environment varibles
+gem 'dotenv-rails'
+
+# Use geocoder for geocode data
+gem 'geocoder'
+# Use country_select for country codes
+gem 'country_select'
+# Use ausburbs for australian suburb data
+gem 'ausburbs'
+# Use mailgun-rails for mailing
+gem 'mailgun-ruby'
+
+# Use shrine for image storage
+gem 'shrine' , '~> 2.6', '>= 2.6'
+# Use image_process for image storage
+gem 'image_processing', '~> 1.0'
+
+# Use acts-as-taggable-on for tags
+gem 'acts-as-taggable-on', '~> 4.0'
+
+# ------------------------------------- RAILS DEFAULT
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -18,7 +47,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -28,14 +56,35 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+
+# ------------------------------------- NON STANDARD GEMS
+
+  # rspec
+  gem 'rspec-rails', '~> 3.7'
+  # Adds should matchers to rspec tests
+  gem 'shoulda-matchers'
+  # factorygirl - makes objects for tests
+  gem 'factory_bot_rails'
+  # faker can fill those factories with fake data
+  gem 'faker'
+  # cleans database between tests
+  gem 'database_cleaner', '~> 1.5'
+  # Pretty rails console tables
+  gem 'hirb'
+
+# ------------------------------------- RAILS DEFAULT
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
 end
 
 group :development do
