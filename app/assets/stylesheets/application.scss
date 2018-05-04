@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+:root {
+    --color-font-main: #000000;
+    --color-bg-main: #EEEEEE;
+    --color-bg-alt: #FAFAFA;
+    --color-highlight-dark: #07796B;
+    --color-highlight-light: #4AAA94;
+    --color-alt-highlight: #C52233;
+}
+
+
+
+body {
+    
+    background-color: var(--color-bg-main);
+    color: var(--color-font-main);
+}
+
+a:link {
+    color: var(--color-highlight-dark);
+}
+
+a:visited {
+    color: var(--color-highlight-dark);
+}
+
+a:hover {
+    color: var(--color-alt-highlight);
+}
+
+textarea, input, select {
+    box-shadow: none;
+    outline: none;
+    resize: none;
+    border: 0;
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    font-size: 1em;
+
+    background-color: var(--color-bg-alt);
+    color: var(--color-font-main);
+}
+
+input[type="submit"] {
+    width: 100px;
+    background-color: var(--color-highlight-dark);
+    color: var(--color-font-main);
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19);
+}
