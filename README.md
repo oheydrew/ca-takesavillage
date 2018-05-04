@@ -104,11 +104,11 @@ I copied the feature list from the User Stories, to lay out the work in front of
 
 I started off with a couple of simple searches for "green" and "blue" on design places such as [Dribbble](https://dribbble.com/oheydrew/buckets/695857-Takes-A-Village-Inspo):
 
-<a href="https://dribbble.com/oheydrew/buckets/695857-Takes-A-Village-Inspo" target="_blank"><img alt="Initial Dribbble Inspo" src="docs/dribbble.jpg" width="400"></a>
+<a href="https://dribbble.com/oheydrew/buckets/695857-Takes-A-Village-Inspo" target="_blank"><img alt="Initial Dribbble Inspo" src="docs/dribbble.png" width="400"></a>
 
 ...and [Pinterest](https://www.pinterest.com.au/oheydrew/takes-a-village-inspo/):
 
-<a href="https://www.pinterest.com.au/oheydrew/takes-a-village-inspo/" target="_blank"><img alt="Initial pinterest Inspo" src="docs/pinterest.jpg" width="400"></a>
+<a href="https://www.pinterest.com.au/oheydrew/takes-a-village-inspo/" target="_blank"><img alt="Initial pinterest Inspo" src="docs/pinterest.png" width="400"></a>
 
 I found myself drawn toward design themes with a white background, and a green or blue foundation colour. I also found my eye catching toward the blockier, more solid look of certain designs-
 
