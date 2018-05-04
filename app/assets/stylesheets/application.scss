@@ -16,23 +16,24 @@
 
 :root {
     --color-font-main: #000000;
+    --color-font-inverse: #EEEEEE;
     --color-bg-main: #EEEEEE;
     --color-bg-alt: #FAFAFA;
     --color-highlight-dark: #07796B;
     --color-highlight-light: #4AAA94;
-    --color-alt-highlight: #C52233;
+    --color-highlight-alt: #C52233;
 }
 
-
-
 body {
-    
     background-color: var(--color-bg-main);
     color: var(--color-font-main);
 }
 
 a:link {
     color: var(--color-highlight-dark);
+    text-decoration: none;
+    transition: 0.2s;
+    font-weight: bold;
 }
 
 a:visited {
@@ -40,7 +41,7 @@ a:visited {
 }
 
 a:hover {
-    color: var(--color-alt-highlight);
+    color: var(--color-highlight-alt);
 }
 
 textarea, input, select {
@@ -57,13 +58,28 @@ textarea, input, select {
 }
 
 input[type="submit"] {
-    width: 100px;
+    min-width: 120px;
     background-color: var(--color-highlight-dark);
-    color: var(--color-font-main);
+    color: var(--color-font-inverse);
+    transition: 0.2s;
+
     padding: 12px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color-highlight-alt);
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.border {
+    border: 2px solid var(--color-highlight-dark);
 }
