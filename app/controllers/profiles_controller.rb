@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
 
     if @profile.save
-      flash[:warning] = 'New Profile Created'
+      flash[:notice] = 'New Profile Created'
       redirect_to profile_path(current_user)
     else
       flash[:warning] = 'Please enter the required fields'
@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
   def update
     authorize @profile
     if @profile.update(profile_params)
-      flash[:warning] = 'Profile Successfully Updated'
+      flash[:notice] = 'Profile Successfully Updated'
       redirect_to profile_path(current_user)
     else
       flash[:warning] = 'Please enter the required fields'
@@ -55,6 +55,8 @@ class ProfilesController < ApplicationController
                                       :last_name,
                                       :tagline,
                                       :bio,
+                                      :website,
+                                      :email_show,
                                       :avatar
                                     ])
   end
