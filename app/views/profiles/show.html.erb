@@ -1,6 +1,8 @@
-<h1>Profile#Show</h1>
+<h1>(search box here)</h1>
 
-<a href="<%= edit_profile_path %>"><div class='button'>Edit</div></a>
+<% if policy(@profile).update? %>
+    <a href="<%= edit_profile_path %>"><div class='button'>Edit Profile</div></a>
+<% end %>
 
 <%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %><br/>
 

@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    authorize @profile
     if @profile.nil?
       @profile = Profile.find_or_initialize_by(user: current_user)
     end
@@ -29,6 +30,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    authorize @profile
     if @profile.update(profile_params)
       flash[:warning] = 'Profile Successfully Updated'
       redirect_to profile_path(current_user)
