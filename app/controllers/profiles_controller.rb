@@ -1,10 +1,14 @@
 class ProfilesController < ApplicationController
-  def show
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
+  def show
   end
 
   def edit
-    @profile = Profile.find_or_initialize_by(user: current_user)
+    if @profile.nil?
+      @profile = Profile.find_or_initialize_by(user: current_user)
+    end
   end
 
   def create
@@ -22,8 +26,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = current_user.profile
-
     if @profile.update(profile_params)
       flash[:warning] = 'New Profile Created'
       redirect_to profile_path
@@ -38,6 +40,10 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def set_profile
+      @profile = Profile.find(params[:id])
+  end
 
   def profile_params
     params.require(:profile).permit([
