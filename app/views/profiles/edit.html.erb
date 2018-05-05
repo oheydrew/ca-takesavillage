@@ -2,8 +2,8 @@
 
 Profile for: <%= @profile.user.email %> Profile #: <%= @profile.id %><br/>
 
-<%= image_tag @profile.avatar_url(:small), class: 'round border fullwidth' if !@profile.avatar_data.nil? %>
+<%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %>
 
-<%= render 'form', profile: @profile %>
+<%= render 'partials/profile_edit_form', profile: @profile %>
 
 <%= link_to 'Back', profile_path %>

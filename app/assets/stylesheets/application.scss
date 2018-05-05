@@ -54,6 +54,7 @@ body {
     display: flex;
     width: 100%;
     flex-direction: row;
+    flex-grow: 0;
 
     height: 60px;
     background-color: var(--color-highlight-secondary);
@@ -62,7 +63,10 @@ body {
     align-items: center;
 
     .navitem {
-        padding: 0 2vw 0 2vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2vw;
         a {
             &:link {
             color: var(--color-font-inverse);
@@ -75,11 +79,22 @@ body {
                 color: var(--color-highlight-alt);
             }
         }
+        .subitem {
+            margin: 0 4px;
+        }
+        img {
+            transition: 0.2s;
+        }
+        img:hover {
+
+            border: 2px solid var(--color-highlight-alt);
+        }
     }
 }
 
 .main {
     display: flex;
+    height: 100%;
     width: 100%;
     justify-content: center;
     overflow: auto;
@@ -87,12 +102,12 @@ body {
 }
 
 .content {
-    display: flex;
+    text-align: center;
+
     height: 100%;
     width: 100%;
     max-width: 1024px;
-    flex-direction: column;
-    margin: 0px 19px;
+    padding: 0px 19px;
     align-items: center;
 
     box-shadow: var(--shadow-outline);
@@ -195,7 +210,7 @@ input[type="submit"] {
 }
 
 .maxmobile {
-    max-width: 300px;
+    max-width: 250px;
 }
 
 // Magical input: file field hiding stuff

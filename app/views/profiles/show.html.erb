@@ -2,6 +2,6 @@
 
 <a href="<%= edit_profile_path %>"><div class='button'>Edit</div></a>
 
-<%= image_tag @profile.avatar_url(:small), class: 'round border fullwidth' if !@profile.avatar_data.nil? %><br/>
+<%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %><br/>
 
 <h1><%= @profile.full_name %></h1>

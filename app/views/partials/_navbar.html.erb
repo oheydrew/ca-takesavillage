@@ -4,12 +4,22 @@
 
 <div class="navitem">
     <% if !user_signed_in? %>
-        <%= link_to_unless_current 'Register', new_user_registration_path %> |&nbsp;
-        <%= link_to_unless_current 'Log In', new_user_session_path %>
-    <% elsif current_user.profile.id.nil? %>
+        <div class="subitem">
+            <%= link_to_unless_current 'Register', new_user_registration_path %> 
+        </div>
+        <div class="subitem">|</div>
+        <div class="subitem">
+            <%= link_to_unless_current 'Log In', new_user_session_path %>
+        </div>
+    <% elsif current_user.profile.nil? || current_user.profile.id.nil? %>
         Profile Incomplete | <%= link_to_unless_current 'Log Out', destroy_user_session_path, method: :delete %>
     <% else %>   
-        <%= link_to_unless_current 'Log Out', destroy_user_session_path, method: :delete %> | 
-        <a href="<% profile_path %>"><img src="<% current_user.profile.avatar_url(:thumb) %>" width="50" class="round border"></a>
+        <div class="subitem">
+            <%= link_to_unless_current 'Log Out', destroy_user_session_path, method: :delete %> 
+        </div> 
+        <div class="subitem">|</div>
+        <div class="subitem">
+            <a href="<%= profile_path(current_user) %>"><%= image_tag current_user.profile.avatar_display(:thumb), class: 'round border', height:'40px' %></a>
+        </div>
     <% end %>
 </div>
