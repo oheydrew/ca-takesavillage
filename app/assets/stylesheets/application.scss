@@ -18,6 +18,7 @@
     box-sizing: border-box;
     --color-font-main: #000000;
     --color-font-inverse: #EEEEEE;
+    --color-font-caption: #A0A0A0;
     --color-bg-main: #EEEEEE;
     --color-bg-alt: #FAFAFA;
     --color-highlight-main: #07796B;
@@ -29,7 +30,7 @@
     --font-serif: 'Roboto Slab', serif;
     --font-display: 'Pacifico', serif;
 
-    --shadow-material: 0 3px 2px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 0, 0, 0.25);
+    --shadow-material: 0 4px 4px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 0, 0, 0.25);
     --shadow-outline: 0 0 10px rgba(0, 0, 0, 0.35);
     --shadow-warning: 0 0 10px rgba(197, 34, 51, 0.8);
 }
@@ -41,6 +42,8 @@ body {
     background-color: var(--color-bg-main);
     color: var(--color-font-main);
     font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: normal;
 }
 
 .container {
@@ -105,8 +108,12 @@ body {
 }
 
 .content {
-    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 
+    text-align: center;
     min-height: 100vh;
     width: 100%;
     max-width: 1024px;
@@ -127,12 +134,43 @@ herofont {
     text-shadow: var(--shadow-material);
 }
 
+h1 {
+    font-family: var(--font-serif);
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+h2 {
+    font-family: var(--font-serif);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h3 {
+    font-family: var(--font-main);
+    font-weight: normal;
+    font-size: 16px;
+}
+
+h4 {
+    font-family: var(--font-main);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+caption {
+    font-family: var(--font-main);
+    color: var(--color-font-caption);
+    font-weight: lighter;
+    font-size: 12px;
+}
+
 a {
     &:link {
     color: var(--color-highlight-main);
     text-decoration: none;
     transition: 0.2s;
-    font-weight: bold;
+    font-weight: normal;
     }
     &:visited {
         color: var(--color-highlight-main);
@@ -140,6 +178,20 @@ a {
     &:hover {
         color: var(--color-highlight-alt);
     }
+}
+
+.card {
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: flex-start;
+    width: 100%;
+    max-width: 350px;
+    padding: 16px;
+
+    border-radius: 10px;
+    background-color: var(--color-bg-alt);
+    text-align: left;
+    box-shadow: var(--shadow-material);
 }
 
 .warning {

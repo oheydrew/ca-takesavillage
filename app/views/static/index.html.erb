@@ -1,6 +1,8 @@
 <h1>Index!</h1>
 
-<%= link_to_unless_current 'Register', new_user_registration_path %> | <%= link_to_unless_current 'Log In', new_user_session_path %> | <%= link_to_unless_current 'Log Out', destroy_user_session_path, method: :delete %><br/>
+<div>
+    <%= link_to_unless_current 'Register', new_user_registration_path %> | <%= link_to_unless_current 'Log In', new_user_session_path %> | <%= link_to_unless_current 'Log Out', destroy_user_session_path, method: :delete %><br/>
+</div>
 
 <% if user_signed_in? %>
     <% unless current_user.profile.nil? %>
