@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab|Pacifico" rel="stylesheet">
 
 
   </head>
@@ -19,6 +19,12 @@
       </div>
       <div class="main">
         <div class="content">
+          <% if flash[:warning] %>
+            <div class="warning"><%= flash[:warning] %></div>
+          <% end %>
+          <% if flash[:notice] %>
+            <div class="notice"><%= flash[:notice] %></div>
+          <% end %>
           <%= yield %>
         </div>
       </div>

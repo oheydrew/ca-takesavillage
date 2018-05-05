@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protect_from_forgery with: :exception
 
@@ -19,6 +20,13 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       redirect_to new_profile_path if current_user.profile.nil?
     end
+  end
+
+  private
+
+  def user_not_authorized
+    flash[:warning] = "You are not authorized to perform this action."
+    redirect_back fallback_location: root_path
   end
 
 end
