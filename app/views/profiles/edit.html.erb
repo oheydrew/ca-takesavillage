@@ -2,7 +2,7 @@
 
 Profile for: <%= @profile.user.email %> Profile #: <%= @profile.id %><br/>
 
-<%= image_tag @profile.avatar_url(:small), class: 'round border'%>
+<%= image_tag @profile.avatar_url(:small), class: 'round border fullwidth' if !@profile.avatar_data.nil? %>
 
 <%= render 'form', profile: @profile %>
 

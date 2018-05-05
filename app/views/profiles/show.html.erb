@@ -1,3 +1,7 @@
 <h1>Profile#Show</h1>
 
-<%= link_to_unless_current 'Log Out', destroy_user_session_path, method: :delete %>
+<a href="<%= edit_profile_path %>"><div class='button'>Edit</div></a>
+
+<%= image_tag @profile.avatar_url(:small), class: 'round border fullwidth' if !@profile.avatar_data.nil? %><br/>
+
+<h1><%= @profile.full_name %></h1>

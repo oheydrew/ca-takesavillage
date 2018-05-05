@@ -3,15 +3,25 @@
   <head>
     <title>Takes A Village</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+
+
   </head>
 
   <body>
-
-    <%= link_to 'Profile', profile_path %> | <%= link_to 'Edit', profile_edit_path %>
-
-    <%= yield %>
+    <div class="container">
+      <div class="nav">
+        <%= render 'partials/navbar' %>
+      </div>
+      <div class="main">
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
