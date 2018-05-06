@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
   before_action :check_profile, except: [:new, :create]
 
   def index
+    authorize @profile
+    @profile = Profile.all
   end
 
   def show
@@ -36,14 +38,17 @@ class ProfilesController < ApplicationController
   def update
     authorize @profile
     if @profile.update(profile_params)
-      flash[:notice] = 'Profile Successfully Updated'
-      display_errors(@profile)
+      flash[:notice] = 'Profile Updated'
     else
+      display_errors(@profile)
       flash[:warning] = 'Please enter the required fields'
     end
   end
 
   def destroy
+    authorize @profile
+    @profile.destroy
+    flash[:notice] = 'Profile Deleted'
   end
 
   private

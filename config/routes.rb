@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :profiles
   # get '/profile', to: 'profiles#show'
 
+  resources :events
+
 end
