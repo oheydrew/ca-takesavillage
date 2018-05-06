@@ -16,7 +16,7 @@
 
 :root {
     box-sizing: border-box;
-    --color-font-main: #000000;
+    --color-font-main: #222222;
     --color-font-inverse: #EEEEEE;
     --color-font-caption: #A0A0A0;
     --color-bg-main: #EEEEEE;
@@ -43,7 +43,8 @@ body {
     color: var(--color-font-main);
     font-family: var(--font-main);
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -142,7 +143,7 @@ h1 {
 
 h2 {
     font-family: var(--font-serif);
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 20px;
 }
 
@@ -154,7 +155,7 @@ h3 {
 
 h4 {
     font-family: var(--font-main);
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 14px;
 }
 
@@ -185,13 +186,16 @@ a {
     // flex-direction: row;
     // justify-content: flex-start;
     width: 100%;
-    max-width: 350px;
     padding: 16px;
 
     border-radius: 10px;
     background-color: var(--color-bg-alt);
     text-align: left;
     box-shadow: var(--shadow-material);
+}
+
+.half {
+    max-width: 350px;
 }
 
 .warning {

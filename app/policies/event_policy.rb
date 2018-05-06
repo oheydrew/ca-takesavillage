@@ -1,4 +1,4 @@
-class ProfilePolicy < ApplicationPolicy
+class EventPolicy < ApplicationPolicy
   def index?
     true
   end

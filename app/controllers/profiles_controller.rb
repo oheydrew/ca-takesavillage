@@ -3,8 +3,8 @@ class ProfilesController < ApplicationController
   before_action :check_profile, except: [:new, :create]
 
   def index
-    authorize @profile
-    @profile = Profile.all
+    authorize @profiles
+    @profiles = Profile.all
   end
 
   def show

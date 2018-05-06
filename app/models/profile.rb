@@ -7,14 +7,14 @@ class Profile < ApplicationRecord
   include ImageUploader::Attachment.new(:avatar)
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".titleize
   end
 
   def avatar_display(args)
     if avatar_data
       avatar_url(args)
     else
-      "http://placehold.it/350/4AAA94/000000"
+      "http://placehold.it/350/4AAA94/000000?text=Avatar_Placehold"
     end
   end
 end

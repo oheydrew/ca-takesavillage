@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize @events
+    @events = Event.all
   end
 
   def show
@@ -55,7 +57,7 @@ class EventsController < ApplicationController
   end
 
   def set_event
-    @event = Event.find_by(owner_id: params[:id])
+    @event = Event.find(params[:id])
   end
 
   def event_params
@@ -75,17 +77,3 @@ class EventsController < ApplicationController
                                   ])
   end
 end
-
-t.bigint ""
-t.string ""
-t.text ""
-t.text ""
-t.text ""
-t.integer ""
-t.date ""
-t.time ""
-t.integer ""
-t.string ""
-t.string ""
-t.string ""
-t.string ""

@@ -1,0 +1,26 @@
+<h1>(search box here)</h1>
+
+<div class="half">
+    <% if policy(@event).update? %>
+        <div>
+            <a href="<%= edit_event_path %>"><div class='button btn-small'>Edit Event</div></a> 
+        </div>
+        <p></p>
+    <% end %>
+
+    <%= image_tag @event.image_display(:medium), class: 'maxmobile' %><br/>
+
+    <h1><%= @event.title %></h1>
+    <div class="card">
+        <strong>Price:</strong> <%= @event.start_date %><br/>
+        <strong>When:</strong> <%= @event.event_time %><br/>
+        <strong>Price:</strong> <%= dollars(@event.price) %><br/>
+        <strong>Taught by:</strong> <%= link_to @event.owner.profile.full_name, profile_path(@event.owner.profile) %><br/>
+    </div>
+
+    <h1>What's it all about?</h1>
+
+    <%= @event.description %>
+
+</div>
+
