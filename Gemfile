@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
@@ -27,10 +28,12 @@ gem 'ausburbs'
 # Use mailgun-rails for mailing
 gem 'mailgun-ruby'
 
-# Use shrine for image storage
+# Use shrine for image upload management
 gem 'shrine' , '~> 2.6', '>= 2.6'
-# Use image_process for image storage
+# Use image_process for image conversion
 gem 'image_processing', '~> 1.0'
+# Use aws-s3 buckets for image storage
+gem "aws-sdk-s3", "~> 1.2" 
 
 # Use acts-as-taggable-on for tags
 gem 'acts-as-taggable-on', '~> 4.0'

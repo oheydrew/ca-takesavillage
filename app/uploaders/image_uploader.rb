@@ -4,6 +4,12 @@ class ImageUploader < Shrine
   plugin :processing
   plugin :versions, names: [:original, :large, :small, :thumb]  # enable Shrine to handle a hash of files
   plugin :delete_raw # delete processed files after uploading
+  plugin :validation_helpers
+
+  Attacher.validate do
+    validate_max_size 10.megabytes, message: 'is too large (max 10mb)'
+    validate_mime_type_inclusion ['image/jpeg', 'image/png', 'image/gif']
+  end
 
   process(:store) do |io, context|
     original = io.download
