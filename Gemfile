@@ -29,7 +29,7 @@ gem 'ausburbs'
 gem 'mailgun-ruby'
 
 # Use shrine for image upload management
-gem 'shrine' , '~> 2.6', '>= 2.6'
+gem 'shrine' , '~> 2.11', '>= 2.11'
 # Use image_process for image conversion
 gem 'image_processing', '~> 1.0'
 # Use aws-s3 buckets for image storage
