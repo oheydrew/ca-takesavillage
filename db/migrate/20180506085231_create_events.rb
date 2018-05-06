@@ -1,7 +1,7 @@
 class CreateEvents < ActiveRecord::Migration[5.1]
   def change
     create_table :events do |t|
-      t.references :owner_id
+      t.references :owner
       t.string :title
       t.text :description
       t.text :requirements

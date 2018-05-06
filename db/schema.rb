@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505091305) do
+ActiveRecord::Schema.define(version: 20180506085232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "owner_id"
+    t.string "title"
+    t.text "description"
+    t.text "requirements"
+    t.text "image_data"
+    t.integer "price"
+    t.date "start_date"
+    t.time "start_time"
+    t.integer "duration"
+    t.string "street"
+    t.string "suburb"
+    t.string "state"
+    t.string "country_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_events_on_owner_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
@@ -27,6 +46,15 @@ ActiveRecord::Schema.define(version: 20180505091305) do
     t.string "website"
     t.boolean "email_show", default: true
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_tickets_on_event_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +75,8 @@ ActiveRecord::Schema.define(version: 20180505091305) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users", column: "owner_id"
   add_foreign_key "profiles", "users"
+  add_foreign_key "tickets", "events"
+  add_foreign_key "tickets", "users"
 end

@@ -5,4 +5,8 @@ class Event < ApplicationRecord
 
   # Event ownership
   belongs_to :owner, class_name: 'User'
+
+  validates :owner, :title, presence: true
+  # validates :price, :start_date, :start_time, :duration,
+  #           :street, :suburb, :state, :country_code, presence: true
 end
