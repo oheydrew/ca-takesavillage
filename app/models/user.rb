@@ -6,4 +6,14 @@ class User < ApplicationRecord
 
   has_one :profile
 
+  # Events through tickets
+  has_many :tickets
+  has_many :events_attending, through: :tickets, source: :event
+
+  # Event ownership
+  has_many :events_owned, class_name: 'Event', foreign_key: :owner_id
+
+  validates :owner, :title, presence: true
+  # validates :price, :start_date, :start_time, :duration,
+  #           :street, :suburb, :state, :country_code, presence: true
 end
