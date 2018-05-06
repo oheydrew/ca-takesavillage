@@ -1,6 +1,6 @@
 class ProfilePolicy < ApplicationPolicy
   def index?
-    true if user.present? && is_admin?
+    true
   end
 
   def create?
@@ -18,12 +18,12 @@ class ProfilePolicy < ApplicationPolicy
   private
 
   # just a nice little namespace method
-  def profile
+  def event
     record
   end
 
   def is_owner?
-    user == profile.user
+    user == event.owner
   end
 
   def is_admin?
