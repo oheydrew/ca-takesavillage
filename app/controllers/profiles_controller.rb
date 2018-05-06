@@ -2,6 +2,9 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :check_profile, except: [:new, :create]
 
+  def index
+  end
+
   def show
   end
 
@@ -24,7 +27,8 @@ class ProfilesController < ApplicationController
       flash[:notice] = 'New Profile Created'
       redirect_to profile_path(current_user)
     else
-      flash[:warning] = 'Please enter the required fields'
+      display_errors(@profile)
+      # flash[:warning] = 'Please enter the required fields'
       redirect_back fallback_location: new_profile_path
     end
   end
@@ -33,20 +37,25 @@ class ProfilesController < ApplicationController
     authorize @profile
     if @profile.update(profile_params)
       flash[:notice] = 'Profile Successfully Updated'
-      redirect_to profile_path(current_user)
+      display_errors(@profile)
     else
       flash[:warning] = 'Please enter the required fields'
     end
   end
 
   def destroy
-
   end
 
   private
 
+  def display_errors(record)
+    if record.errors.any? # If there are errors, do something
+      flash[:warning] = record.errors.full_messages.join(' | ')
+    end
+  end
+
   def set_profile
-      @profile = Profile.find_by(user_id: params[:id])
+    @profile = Profile.find_by(user_id: params[:id])
   end
 
   def profile_params
