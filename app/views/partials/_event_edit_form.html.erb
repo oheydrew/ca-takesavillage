@@ -1,0 +1,73 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :image_data %><br/>
+    <%= form.hidden_field :image, value: event.cached_image_data %>
+    <%= form.file_field  :image, id: :event_image_data, class:'file_field_hide' %>
+    <label for='event_image_data'>Select a file</label>
+  </div>
+
+  <div>
+    <%= form.text_field :title, id: :event_title, placeholder: 'title' %>
+  </div>
+
+
+  <div>
+    <%= form.text_field :description, id: :event_description, placeholder: 'description' %>
+  </div>
+
+  <div>
+    <%= form.text_area :requirements, id: :event_requirements, placeholder: 'pre requirements' %>
+  </div>
+
+  <div>
+    <%= form.text_field :price, id: :event_price, placeholder: '0 for "free"' %>
+  </div>
+
+  <div>
+    <%= form.text_field :start_date, id: :event_start_date, placeholder: 'eg. 01-01-2019' %>
+  </div>
+
+  <div>
+    <%= form.text_field :start_time, id: :event_start_time, placeholder: '24 hr eg. 10:00' %>
+  </div>
+
+  <div>
+    <%= form.text_field :duration, id: :event_duration, placeholder: 'In hours eg. 1' %>
+  </div>
+
+  <div>
+    <%= form.text_field :street, id: :event_street, placeholder: 'eg. 120 Spencer Street' %>
+  </div>
+
+  <div>
+    <%= form.text_field :suburb, id: :event_suburb, placeholder: 'eg. eg. Melbourne' %>
+  </div>
+
+  <div>
+    <%= form.text_field :state, id: :event_state, placeholder: 'eg. Victoria' %>
+  </div>
+
+  <div>
+    <%= form.text_field :country_code, id: :event_country_code, placeholder: 'eg. AU' %>
+  </div>
+
+  <div>
+    <%= form.text_field :location_details, id: :event_location_details, placeholder: 'eg. Please buzz Apartment 13' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

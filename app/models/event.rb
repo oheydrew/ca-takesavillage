@@ -7,8 +7,9 @@ class Event < ApplicationRecord
   belongs_to :owner, class_name: 'User'
 
   validates :owner, :title, presence: true
-  # validates :price, :start_date, :start_time, :duration,
-  #           :street, :suburb, :state, :country_code, presence: true
+  validates :price, :start_date, :start_time, :duration,
+            :street, :suburb, :state, :country_code, presence: true
+
 
   include ImageUploader::Attachment.new(:image)
 
@@ -42,5 +43,4 @@ class Event < ApplicationRecord
   def full_address
     "#{street}, #{suburb}, #{state} #{country_code}"
   end
-
 end

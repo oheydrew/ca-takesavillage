@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   def edit
     authorize @event
-    @event = Event.find_or_initialize_by(owner: current_user)
+    @event = Event.find_or_initialize_by(id: params[:id])
   end
 
   def new
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:notice] = 'New Event Created'
-      redirect_to event_path(current_user)
+      redirect_to event_path(@event)
     else
       display_errors(@event)
       # flash[:warning] = 'Please enter the required fields'
@@ -36,6 +36,7 @@ class EventsController < ApplicationController
     authorize @event
     if @event.update(event_params)
       flash[:notice] = 'Event Updated'
+      redirect_to event_path(@event)
     else
       display_errors(@event)
       flash[:warning] = 'Please enter the required fields'

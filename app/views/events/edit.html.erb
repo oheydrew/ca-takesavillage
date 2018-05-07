@@ -1,0 +1,9 @@
+<h1>Edit Event</h1>
+
+Event Owner: <%= @event.owner.email %> Event Title: <%= @event.title %><br/>
+
+<%= image_tag @event.image_display(:small), class: 'maxmobile' %>
+
+<%= render 'partials/event_edit_form', event: @event %>
+
+<%= link_to 'Back', root_path %>
