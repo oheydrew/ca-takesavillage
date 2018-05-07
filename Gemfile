@@ -37,6 +37,8 @@ gem "aws-sdk-s3", "~> 1.2"
 
 # Use acts-as-taggable-on for tags
 gem 'acts-as-taggable-on', '~> 4.0'
+# For validating date/time input format
+gem 'validates_timeliness', '~> 4.0'
 
 # ------------------------------------- RAILS DEFAULT
 
