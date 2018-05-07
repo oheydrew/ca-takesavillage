@@ -6,8 +6,10 @@ class Profile < ApplicationRecord
 
   include ImageUploader::Attachment.new(:avatar)
 
-  def full_name
-    "#{first_name} #{last_name}".titleize
+  after_create :default_values
+
+  def default_values
+    tagline = "Excellent at the things I do"
   end
 
   def avatar_display(args)
@@ -16,5 +18,13 @@ class Profile < ApplicationRecord
     else
       "http://placehold.it/350/4AAA94/000000?text=Avatar_Placehold"
     end
+  end
+
+  def full_name
+    "#{first_name} #{last_name}".titleize
+  end
+
+  def full_address
+    "#{street}, #{suburb}, #{state} #{country_code}"
   end
 end

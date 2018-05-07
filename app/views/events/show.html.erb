@@ -52,20 +52,22 @@
                     <%= @event.owner.profile.full_name %>
                 </h1>
                 <strong><%= @event.owner.profile.tagline %></strong><br/>
-                <%#= @event.owner.profile.suburb %>, <%#= @event.owner.profile.country_code %>
+                <%= "#{@event.owner.profile.suburb}, " if @event.owner.profile.suburb %><%= @event.owner.profile.country_code if @event.owner.profile.country_code %>
             </div>
         </div>
         <h1>Where do I go?</h1>
         <div class="card">
             <div class="map">
                 <h1>
-                    Wow! What a good map! Hoooly crap what a map
+                    <%= static_map(@event.full_address) %>
                 </h1>
             </div> 
             <div class="eventdetails">
             <strong>City:</strong> <%= @event.suburb %>, <%= @event.country_code %><br/>
             <strong>Address:</strong> <%= @event.street %><br/>
-            <strong>Details:</strong> <%#= @event.location_details %><br/>
+            <% if @event.location_details %>
+                <strong>Details:</strong> <%= @event.location_details %><br/>
+            <% end %>
             </div>
         </div>
     </div>

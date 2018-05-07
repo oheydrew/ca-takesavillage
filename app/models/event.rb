@@ -12,6 +12,12 @@ class Event < ApplicationRecord
 
   include ImageUploader::Attachment.new(:image)
 
+  after_create :default_values
+
+  def default_values
+ 
+  end
+
   def image_display(args)
     if image_data
       image_url(args)
@@ -33,5 +39,8 @@ class Event < ApplicationRecord
   # date = Date.parse '1984-07-14'
   # Date.new(2015, 2, 10).to_datetime + Time.parse("16:30").seconds_since_midnight.seconds
 
+  def full_address
+    "#{street}, #{suburb}, #{state} #{country_code}"
+  end
 
 end
