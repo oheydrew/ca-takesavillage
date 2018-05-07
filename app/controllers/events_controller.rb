@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    authorize @events
     @events = Event.all
+    authorize @events
   end
 
   def show
@@ -20,26 +20,26 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user = current_user
+    @event.owner = current_user
 
     if @event.save
-      flash[:notice] = 'New Event Created'
+      flash[:notice] = 'New workshop created!'
       redirect_to event_path(@event)
     else
       display_errors(@event)
-      # flash[:warning] = 'Please enter the required fields'
-      redirect_back fallback_location: new_event_path
+      flash[:warning] = 'Oops! We found some problems...'
+      render :new
     end
   end
 
   def update
     authorize @event
     if @event.update(event_params)
-      flash[:notice] = 'Event Updated'
+      flash[:notice] = 'Workshop updated'
       redirect_to event_path(@event)
     else
       display_errors(@event)
-      flash[:warning] = 'Please enter the required fields'
+      flash[:warning] = 'Oops! We found some problems...'
       render :edit
     end
   end
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
     @event.destroy
-    flash[:notice] = 'Event Deleted'
+    flash[:notice] = 'Workshop deleted'
   end
 
   private
