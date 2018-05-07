@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506085232) do
+ActiveRecord::Schema.define(version: 20180507010302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180506085232) do
     t.string "country_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location_details"
     t.index ["owner_id"], name: "index_events_on_owner_id"
   end
 
@@ -45,6 +46,9 @@ ActiveRecord::Schema.define(version: 20180506085232) do
     t.datetime "updated_at", null: false
     t.string "website"
     t.boolean "email_show", default: true
+    t.string "suburb"
+    t.string "state"
+    t.string "country_code"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
