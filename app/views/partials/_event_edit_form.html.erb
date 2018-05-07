@@ -11,63 +11,78 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :image_data %><br/>
-    <%= form.hidden_field :image, value: event.cached_image_data %>
-    <%= form.file_field  :image, id: :event_image_data, class:'file_field_hide' %>
-    <label for='event_image_data'>Select a file</label>
-  </div>
-
-  <div>
-    <%= form.text_field :title, id: :event_title, placeholder: 'title' %>
-  </div>
-
-
-  <div>
-    <%= form.text_field :description, id: :event_description, placeholder: 'description' %>
-  </div>
-
-  <div>
-    <%= form.text_area :requirements, id: :event_requirements, placeholder: 'pre requirements' %>
-  </div>
-
-  <div>
-    <%= form.text_field :price, id: :event_price, placeholder: '0 for "free"' %>
-  </div>
-
-  <div>
-    <%= form.text_field :start_date, id: :event_start_date, placeholder: 'eg. 01-01-2019' %>
-  </div>
-
-  <div>
-    <%= form.text_field :start_time, id: :event_start_time, placeholder: '24 hr eg. 10:00' %>
-  </div>
-
-  <div>
-    <%= form.text_field :duration, id: :event_duration, placeholder: 'In hours eg. 1' %>
-  </div>
-
-  <div>
-    <%= form.text_field :street, id: :event_street, placeholder: 'eg. 120 Spencer Street' %>
-  </div>
-
-  <div>
-    <%= form.text_field :suburb, id: :event_suburb, placeholder: 'eg. eg. Melbourne' %>
-  </div>
-
-  <div>
-    <%= form.text_field :state, id: :event_state, placeholder: 'eg. Victoria' %>
-  </div>
-
-  <div>
-    <%= form.text_field :country_code, id: :event_country_code, placeholder: 'eg. AU' %>
-  </div>
-
-  <div>
-    <%= form.text_field :location_details, id: :event_location_details, placeholder: 'eg. Please buzz Apartment 13' %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="half">
+    <div>
+      <%= form.label :image_data %><br/>
+      <%= form.hidden_field :image, value: event.cached_image_data %>
+      <%= form.file_field  :image, id: :event_image_data, class:'file_field_hide' %>
+      <label for='event_image_data'>Select a file</label>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :title, "Event title" %><br/>
+      <%= form.text_field :title, id: :event_title, placeholder: 'your event title goes here!' %>
+    </div>
+  
+  
+    <div class="inputfield">
+      <%= form.label :description, "Event description" %><br/>
+      <%= form.text_field :description, id: :event_description, placeholder: 'a full desciption of your event goes here!' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :requirements, "Event requirements" %><br/>
+      <%= form.text_area :requirements, id: :event_requirements, placeholder: 'does your event have any pre-requirements? do your attendees need to bring anything?' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :price, "Event price (if any)" %><br/>
+      <%= form.text_field :price, id: :event_price, placeholder: 'eg. 0 for "free"' %>
+    </div>
+  
+    <div class="inputfield">
+      <span class="errors"><%= display_errors(event, :start_date) %><br/></span>
+      <%= form.label :start_date, "Event date" %><br/>
+      <%= form.text_field :start_date, id: :event_start_date, placeholder: 'eg. 01-01-2019' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :start_time, "Event starting time" %><br/>
+      <%= form.text_field :start_time, id: :event_start_time, placeholder: 'eg. 10:00 or 10 am' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :duration, "Event duration (hours)" %><br/>
+      <%= form.text_field :duration, id: :event_duration, placeholder: 'eg. 1' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :street, "Street address" %><br/>
+      <%= form.text_field :street, id: :event_street, placeholder: 'eg. 120 Spencer Street' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :suburb, "Suburb" %><br/>
+      <%= form.text_field :suburb, id: :event_suburb, placeholder: 'eg. Melbourne' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :state, "State" %><br/>
+      <%= form.text_field :state, id: :event_state, placeholder: 'eg. Victoria' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :country_code, "Country" %><br/>
+      <%= form.text_field :country_code, id: :event_country_code, placeholder: 'eg. AU' %>
+    </div>
+  
+    <div class="inputfield">
+      <%= form.label :location_details, "Additional location details" %><br/>
+      <%= form.text_field :location_details, id: :event_location_details, placeholder: 'eg. Please buzz Apartment 13' %>
+    </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

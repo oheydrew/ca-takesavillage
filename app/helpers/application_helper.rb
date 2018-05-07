@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def display_errors(model, field)
+    if model.errors[field].present?
+      model.errors.full_messages_for(field).each do |message|
+          message
+      end
+    end
+  end
+  
   def dollars(cents)
     "$#{'%.2f' % (cents.to_i/100.0)}"
   end

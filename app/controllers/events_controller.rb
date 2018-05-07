@@ -40,6 +40,7 @@ class EventsController < ApplicationController
     else
       display_errors(@event)
       flash[:warning] = 'Please enter the required fields'
+      render :edit
     end
   end
 
@@ -74,7 +75,8 @@ class EventsController < ApplicationController
                                     :street,
                                     :suburb,
                                     :state,
-                                    :country_code
+                                    :country_code,
+                                    :location_details
                                   ])
   end
 end
