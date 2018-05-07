@@ -1,9 +1,13 @@
 module ApplicationHelper
+
+  # drew's handy dandy error function: Loops through errors by field and displays them
   def display_errors(model, field)
+    messages = []
     if model.errors[field].present?
       model.errors.full_messages_for(field).each do |message|
-          message
+          messages << message
       end
+      return "<br>#{messages.join('<br>')}".html_safe
     end
   end
   
