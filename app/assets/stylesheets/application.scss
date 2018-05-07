@@ -15,7 +15,7 @@
  */
 
 :root {
-    box-sizing: border-box;
+    
     --color-font-main: #222222;
     --color-font-inverse: #EEEEEE;
     --color-font-caption: #A0A0A0;
@@ -35,9 +35,12 @@
     --shadow-warning: 0 0 10px rgba(197, 34, 51, 0.8);
 }
 
-
+* {
+    box-sizing: border-box;
+}
 
 body {
+    
     margin: 0;
     background-color: var(--color-bg-main);
     color: var(--color-font-main);
@@ -128,11 +131,56 @@ input {
     font-family: var(--font-main);
 }
 
-herofont {
+logofont {
     font-family: var(--font-display);
     font-weight: normal;
     font-size: 28px;
     text-shadow: var(--shadow-material);
+}
+
+herofont {
+    font-family: var(--font-serif);
+    font-weight: bold;
+    font-size: 34px;
+    text-shadow: var(--shadow-material);
+}
+
+.hero-header {
+    height: 300px;
+    overflow: hidden;
+    box-shadow: var(--shadow-material);
+    .hero-image {
+        width: 100vw;
+    
+        position: relative;
+        top: -100%;
+        z-index: 0;
+    }
+    
+    .hero-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        float: left;
+        position: absolute;
+        width: 100%;
+        height: 125px;
+        left: 50%;
+        margin-left: -50vw;
+        top: 140px;
+        z-index: 1000;
+
+        padding: 5px;
+        color: #FFFFFF;
+        font-weight: bold;
+        
+        -webkit-backdrop-filter: blur(10px);
+        -moz-backdrop-filter: blur(10px);
+        -o-backdrop-filter: blur(10px);
+        -ms-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
 
 h1 {
@@ -195,7 +243,20 @@ a {
 }
 
 .half {
-    max-width: 350px;
+    width: 100%;
+    max-width: 450px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.errors {
+    color: var(--color-highlight-main);
 }
 
 .warning {
@@ -203,7 +264,7 @@ a {
     top: 80px;
     width: 280px;
     left: 50%;
-    margin-left: -155px;
+    margin-left: -140px;
     padding: 10px;
     background-color: var(--color-highlight-alt-light);
     border: 2px solid black;
@@ -236,6 +297,8 @@ textarea, input, select {
     margin: 5px 0px 5px 0px;
     padding: 5px;
     font-size: 1em;
+
+    width: 100%;
 
     background-color: var(--color-bg-alt);
     color: var(--color-font-main);
@@ -271,6 +334,15 @@ textarea, input, select {
     &.btn-wide {
         min-width: 100%;
     }
+    a {
+        &:link {
+        color: var(--color-font-inverse);
+        text-shadow: var(--shadow-material);
+        }
+        &:visited {
+            color: var(--color-font-inverse);
+        }
+    }
 }
 
 input[type="submit"] {
@@ -292,8 +364,6 @@ input[type="submit"] {
     }
 }
 
-
-
 .round {
     border-radius: 50%;
 }
@@ -304,6 +374,13 @@ input[type="submit"] {
 
 .maxmobile {
     max-width: 250px;
+}
+
+.inputfield {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
 }
 
 // Magical input: file field hiding stuff
