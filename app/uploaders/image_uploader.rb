@@ -16,6 +16,7 @@ class ImageUploader < Shrine
     pipeline = ImageProcessing::MiniMagick.source(original)
 
     size_1440 = pipeline.resize_to_limit!(1440, 1440)
+    size_600 = pipeline.resize_to_limit!(600, 600)
     size_350 = pipeline.resize_to_limit!(350, 350)
     size_80  = pipeline.resize_to_limit!(80, 80)
 
@@ -24,6 +25,7 @@ class ImageUploader < Shrine
     { 
       original: io,
       large: size_1440,
+      medium: size_600,
       small: size_350,
       thumb: size_80
     }

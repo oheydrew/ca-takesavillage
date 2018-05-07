@@ -141,7 +141,7 @@ logofont {
 herofont {
     font-family: var(--font-serif);
     font-weight: bold;
-    font-size: 34px;
+    font-size: 28px;
     text-shadow: var(--shadow-material);
 }
 
@@ -151,11 +151,10 @@ herofont {
     box-shadow: var(--shadow-material);
     .hero-image {
         width: 100vw;
-    
+        min-height: 300px;
         position: relative;
         top: 0;
         z-index: 0;
-        min-height: 300px;
     }
     
     .hero-text {
@@ -339,7 +338,7 @@ textarea, input, select {
         width: 150px;
     }
     &.btn-large {
-        width: 400px;
+        width: 300px;
     }
     &.btn-wide {
         min-width: 100%;
@@ -433,5 +432,49 @@ input[type="submit"] {
     &:hover {
         background-color: var(--color-highlight-alt);
     }
+}
+
+.event-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+}
+
+.event-card {
+    text-align: center;
+    width: 300px;
+    max-width: 300px !important;
+    overflow: hidden;
+    margin: 10px;
+    transition: 0.2s;
+
+    &:link {
+        color: var(--color-font-inverse);
+        text-shadow: var(--shadow-material);
+    }
+    &:visited {
+        color: var(--color-font-inverse);
+    }
+    &:hover {
+        color: var(--color-highlight-alt);
+        background-color: var(--color-highlight-main);
+    }
+
+}
+
+.square-image{
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+.square-image img {
+      position: absolute;   
+      width: 150%;
+      max-height: 200%;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
 }
 
