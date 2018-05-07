@@ -10,6 +10,8 @@ class Event < ApplicationRecord
   validates :price, :start_date, :start_time, :duration,
             :street, :suburb, :state, :country_code, presence: true
 
+  validates_time :start_time
+  validates_date :start_date, on_or_after: :today
 
   include ImageUploader::Attachment.new(:image)
 
