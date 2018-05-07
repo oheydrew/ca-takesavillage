@@ -1,6 +1,10 @@
 <h1>(search box here)</h1>
 
 <div class="half">
+    <div class="hero-header" id="event-hero">
+        <%= image_tag @event.image_display(:medium), class: 'maxmobile' %><br/>
+    </div>
+
     <% if policy(@event).update? %>
         <div>
             <a href="<%= edit_event_path %>"><div class='button btn-small'>Edit Event</div></a> 
@@ -8,19 +12,63 @@
         <p></p>
     <% end %>
 
-    <%= image_tag @event.image_display(:medium), class: 'maxmobile' %><br/>
-
-    <h1><%= @event.title %></h1>
-    <div class="card">
-        <strong>Price:</strong> <%= @event.start_date %><br/>
-        <strong>When:</strong> <%= @event.event_time %><br/>
-        <strong>Price:</strong> <%= dollars(@event.price) %><br/>
-        <strong>Taught by:</strong> <%= link_to @event.owner.profile.full_name, profile_path(@event.owner.profile) %><br/>
+    <h1>
+        <%= @event.title %>
+    </h1>
+    <div class="section" id="event-details">
+        <div class="card eventdetails">
+            <strong>Price:</strong> <%= @event.start_date %><br/>
+            <strong>When:</strong> <%= @event.event_time %><br/>
+            <strong>Price:</strong> <%= dollars(@event.price) %><br/>
+            <strong>Taught by:</strong> <%= link_to @event.owner.profile.full_name, profile_path(@event.owner.profile) %><br/>
+        </div>
+        <a href="#"><div class='button btn-small'>Book My Spot!</a></div>
     </div>
 
-    <h1>What's it all about?</h1>
+    <div class="section" id="event-description">
+        <h1>
+            What's it all about?
+        </h1>
 
-    <%= @event.description %>
+        <%= @event.description %>
+
+        <h1>
+            What do I need? to bring?
+        </h1>
+
+        <%= @event.requirements %>
+    </div>
+
+    <div class="section" id="event-wherewhen">
+        <h1>
+            Who's teaching this?
+        </h1>
+        <div class="card teacherdetails">
+            <div class="cardleft">
+                <%= image_tag @event.owner.profile.avatar_display(:thumb), class: 'round border maxmobile' %>
+            </div>
+            <div class="cardright">
+                <h1>
+                    <%= @event.owner.profile.full_name %>
+                </h1>
+                <strong><%= @event.owner.profile.tagline %></strong><br/>
+                <%#= @event.owner.profile.suburb %>, <%#= @event.owner.profile.country_code %>
+            </div>
+        </div>
+        <h1>Where do I go?</h1>
+        <div class="card">
+            <div class="map">
+                <h1>
+                    Wow! What a good map! Hoooly crap what a map
+                </h1>
+            </div> 
+            <div class="eventdetails">
+            <strong>City:</strong> <%= @event.suburb %>, <%= @event.country_code %><br/>
+            <strong>Address:</strong> <%= @event.street %><br/>
+            <strong>Details:</strong> <%#= @event.location_details %><br/>
+            </div>
+        </div>
+    </div>
 
 </div>
 
