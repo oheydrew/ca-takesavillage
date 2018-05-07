@@ -1,17 +1,10 @@
 <%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div>
+      <%= image_tag @event.image_display(:small), class: 'maxmobile' %><br/>
     </div>
-  <% end %>
 
   <div class="half">
+
     <div>
       <%= form.label :image_data %><br/>
       <%= form.hidden_field :image, value: event.cached_image_data %>
