@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507010302) do
+ActiveRecord::Schema.define(version: 20180507113829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,17 +21,18 @@ ActiveRecord::Schema.define(version: 20180507010302) do
     t.text "description"
     t.text "requirements"
     t.text "image_data"
-    t.integer "price"
+    t.integer "price", default: 0
     t.date "start_date"
     t.time "start_time"
-    t.integer "duration"
+    t.integer "duration", default: 3600
     t.string "street"
     t.string "suburb"
     t.string "state"
-    t.string "country_code"
+    t.string "country_code", default: "AU"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location_details"
+    t.integer "max_attendees", default: 10
     t.index ["owner_id"], name: "index_events_on_owner_id"
   end
 

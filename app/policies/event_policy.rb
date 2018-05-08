@@ -15,6 +15,10 @@ class EventPolicy < ApplicationPolicy
     true if user.present? && (is_owner? || is_admin?)
   end
 
+  def attend?
+    true if user.present?
+  end
+
   private
 
   # just a nice little namespace method

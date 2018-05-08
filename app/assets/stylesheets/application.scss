@@ -23,8 +23,10 @@
     --color-bg-alt: #FAFAFA;
     --color-highlight-main: #07796B;
     --color-highlight-secondary: #4AAA94;
-    --color-highlight-alt: #C52233;
-    --color-highlight-alt-light: #f0a8af;
+    --color-highlight-warning: #C52233;
+    --color-highlight-warning-light: #C44E5A;
+    --color-highlight-notice: #1F5673; 
+    --color-highlight-notice-light: #6699CC;
 
     --font-main: 'Roboto', sans-serif;
     --font-serif: 'Roboto Slab', serif;
@@ -85,7 +87,7 @@ body {
                 color: var(--color-font-inverse);
             }
             &:hover {
-                color: var(--color-highlight-alt);
+                color: var(--color-highlight-warning);
             }
         }
         .subitem {
@@ -96,7 +98,7 @@ body {
         }
         img:hover {
 
-            border: 2px solid var(--color-highlight-alt);
+            border: 2px solid var(--color-highlight-warning);
         }
     }
 }
@@ -121,11 +123,27 @@ body {
     min-height: 100vh;
     width: 100%;
     max-width: 1024px;
-    padding: 0px 19px;
+    padding: 0px 19px 40px;
     align-items: center;
 
     box-shadow: var(--shadow-outline);
 }
+
+// Attempting to cover the ugly blur artifacts. No success
+// .coverleft {
+//     background-color: var(--color-bg-main);
+//     width: 15px;
+//     height: 100%;
+//     position: absolute;
+//     left: 0px;
+// }
+// .coverright {
+//     background-color: var(--color-bg-main);
+//     width: 15px;
+//     height: 100%;
+//     position: absolute;
+//     right: 0px;
+// }
 
 input {
     font-family: var(--font-main);
@@ -170,8 +188,8 @@ herofont {
         height: 125px;
         left: 50%;
         margin-left: -50vw;
-        top: 140px;
-        z-index: 1000;
+        top: 150px;
+        z-index: 0;
 
         padding: 5px;
         color: #FFFFFF;
@@ -227,7 +245,7 @@ a {
         color: var(--color-highlight-main);
     }
     &:hover {
-        color: var(--color-highlight-alt);
+        color: var(--color-highlight-warning);
     }
 }
 
@@ -258,7 +276,7 @@ form {
 }
 
 .errors {
-    color: var(--color-highlight-alt);
+    color: var(--color-highlight-warning);
 }
 
 .field_with_errors { 
@@ -266,29 +284,35 @@ form {
 }
 
 .warning {
-    position: absolute;
-    top: 80px;
-    width: 280px;
-    left: 50%;
-    margin-left: -140px;
-    padding: 10px;
-    background-color: var(--color-highlight-alt-light);
+    // position: absolute;
+    // top: 10px;
+    // width: 280px;
+    // left: 50%;
+    // margin-left: -140px;
+    width: 110vw;
+    height: 25px;
+    padding: 1px;
+    background-color: var(--color-highlight-warning-light);
     border: 2px solid black;
-    border-radius: 10px;
+    // border-radius: 10px;
+    z-index: 1;
     box-shadow: var(--shadow-material);
     box-shadow: var(--shadow-outline);
 }
 
 .notice {
-    position: absolute;
-    top: 80px;
-    width: 280px;
-    left: 50%;
-    margin-left: -155px;
-    padding: 10px;
-    background-color: var(--color-highlight-secondary);
+    // position: absolute;
+    // top: 10px;
+    // width: 280px;
+    // left: 50%;
+    // margin-left: -140px;
+    width: 110vw;
+    height: 25px;
+    padding: 1px;
+    background-color: var(--color-highlight-notice-light);
     border: 2px solid black;
-    border-radius: 10px;
+    // border-radius: 10px;
+    z-index: 1;
     box-shadow: var(--shadow-material);
     box-shadow: var(--shadow-outline);
 }
@@ -329,7 +353,7 @@ textarea, input, select {
     box-shadow: var(--shadow-material);
     display: inline-block;
     &:hover {
-        background-color: var(--color-highlight-alt);
+        background-color: var(--color-highlight-warning);
     }
     &.btn-small {
         width: 80px;
@@ -369,7 +393,7 @@ input[type="submit"] {
     box-shadow: var(--shadow-material);
 
     &:hover {
-        background-color: var(--color-highlight-alt);
+        background-color: var(--color-highlight-warning);
     }
 }
 
@@ -430,7 +454,7 @@ input[type="submit"] {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.19);
     display: inline-block;
     &:hover {
-        background-color: var(--color-highlight-alt);
+        background-color: var(--color-highlight-warning);
     }
 }
 
@@ -458,7 +482,7 @@ input[type="submit"] {
         color: var(--color-font-inverse);
     }
     &:hover {
-        color: var(--color-highlight-alt);
+        color: var(--color-highlight-warning);
         background-color: var(--color-highlight-main);
     }
 

@@ -34,6 +34,14 @@ class ApplicationPolicy
     false
   end
 
+  def attend?
+    false
+  end
+
+  def unattend?
+    attend?
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end
