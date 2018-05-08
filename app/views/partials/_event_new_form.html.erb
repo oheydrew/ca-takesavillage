@@ -11,12 +11,6 @@
     </div>
   
     <div class="inputfield">
-      <span class="errors"><%= display_errors(event, :price) %><br/></span>
-      <%= form.label :price, "Event price (if any)" %><br/>
-      <%= form.text_field :price, id: :event_price, placeholder: 'eg. 0 for "free"', required: true %>
-    </div>
-  
-    <div class="inputfield">
       <span class="errors"><%= display_errors(event, :start_date) %><br/></span>
       <%= form.label :start_date, "Event date" %><br/>
       <%= form.text_field :start_date, id: :event_start_date, placeholder: 'eg. 01-01-2019', required: true %>
@@ -26,12 +20,6 @@
       <span class="errors"><%= display_errors(event, :start_time) %><br/></span>
       <%= form.label :start_time, "Event starting time" %><br/>
       <%= form.text_field :start_time, id: :event_start_time, placeholder: 'eg. 10:00 or 10 am', required: true %>
-    </div>
-  
-    <div class="inputfield">
-      <span class="errors"><%= display_errors(event, :duration) %><br/></span>
-      <%= form.label :duration, "Event duration (hours)" %><br/>
-      <%= form.text_field :duration, id: :event_duration, placeholder: 'eg. 1', required: true %>
     </div>
   
     <div class="inputfield">
@@ -91,6 +79,18 @@
       <span class="errors"><%= display_errors(event, :location_details) %><br/></span>
       <%= form.label :location_details, "Additional location details" %><br/>
       <%= form.text_field :location_details, id: :event_location_details, placeholder: 'eg. Please buzz Apartment 13' %>
+    </div>
+
+    <div class="inputfield">
+      <span class="errors"><%= display_errors(event, :duration) %><br/></span>
+      <%= form.label :duration, "Event duration (hours)" %><br/>
+      <%= form.text_field :duration, id: :event_duration, placeholder: 'eg. 1', required: true %>
+    </div>
+
+    <div class="inputfield">
+      <span class="errors"><%= display_errors(event, :price) %><br/></span>
+      <%= form.label :price, "Event price (if any)" %><br/>
+      <%= form.text_field :price, id: :event_price, placeholder: 'eg. 0 for "free"', required: true %>
     </div>
   
     <div>

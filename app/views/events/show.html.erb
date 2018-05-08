@@ -14,6 +14,8 @@
         <p></p>
     <% end %>
 
+    
+
     <h1>
         <%= @event.title %>
     </h1>
@@ -26,7 +28,8 @@
                                     <%= @event.suburb %> <%= @event.state %><br/>
             <strong>Taught by:</strong> <%= link_to @event.owner.profile.full_name, profile_path(@event.owner.profile) %><br/>
         </div>
-        <a href="#"><div class='button btn-medium'>Book My Spot!</a></div>
+
+        <%= attendance_button(@event) %>
     </div>
  
     <div class="section" id="event-description">
@@ -59,7 +62,10 @@
                 <%= "#{@event.owner.profile.suburb}, " if @event.owner.profile.suburb %><%= @event.owner.profile.country_code if @event.owner.profile.country_code %>
             </div>
         </div>
-        <h1>Where do I go?</h1>
+
+        <h1>
+            Where do I go?
+        </h1>
         <div class="card">
             <div class="map">
                 <h1>
@@ -73,6 +79,22 @@
                 <strong>Details:</strong> <%= @event.location_details %><br/>
             <% end %>
             </div>
+        </div>
+    </div>
+
+    <div class="section" id="attendance">
+
+        <h1>
+            Who's going?
+        </h1>
+        <h4><%= @event.users_attending.count %> / <%= @event.max_attendees %> spots</h4>
+        <%= attendance_button(@event) %>
+        <div class="card">
+            <% if @event.users_attending %>
+                <% @event.users_attending.each do |user| %>
+                    <%= user.profile.full_name %><br/>
+                <% end %>
+            <% end %>
         </div>
     </div>
 

@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :attend, :unattend]
+  before_action :check_profile
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @events = Event.all
@@ -12,6 +14,7 @@ class EventsController < ApplicationController
   def edit
     authorize @event
     @event = Event.find_or_initialize_by(id: params[:id])
+    @event.duration = (@event.duration / 60) / 60
   end
 
   def new
@@ -34,6 +37,7 @@ class EventsController < ApplicationController
 
   def update
     authorize @event
+
     if @event.update(event_params)
       flash[:notice] = 'Workshop updated'
       redirect_to event_path(@event)
@@ -48,6 +52,28 @@ class EventsController < ApplicationController
     authorize @event
     @event.destroy
     flash[:notice] = 'Workshop deleted'
+  end
+
+  def attend
+    authorize @event
+
+    if @event.users_attending.include? current_user
+      flash[:warning] = "You're already on the list!"
+    elsif @event.users_attending.count < @event.max_attendees
+      @event.users_attending << current_user
+      flash[:notice] = "Great news! You're on the list!"
+    else
+      flash[:warning] = 'Sorry, this event has no more vacancies.'
+    end
+    redirect_back fallback_location: event_path
+  end
+
+  def unattend
+    authorize @event
+
+    @event.users_attending.destroy(current_user)
+    flash[:warning] = "You're off the list"
+    redirect_back fallback_location: event_path
   end
 
   private
@@ -76,7 +102,8 @@ class EventsController < ApplicationController
                                     :suburb,
                                     :state,
                                     :country_code,
-                                    :location_details
+                                    :location_details,
+                                    :max_attendees
                                   ])
   end
 end

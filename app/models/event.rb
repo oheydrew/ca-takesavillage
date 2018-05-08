@@ -14,11 +14,11 @@ class Event < ApplicationRecord
   validates_date :start_date, on_or_after: :today
 
   include ImageUploader::Attachment.new(:image)
-
-  after_create :default_values
-
-  def default_values
- 
+  
+  before_save :convert_hours_to_seconds
+  def convert_hours_to_seconds
+    seconds = duration.to_i * (60 * 60)
+    self[:duration] = seconds
   end
 
   def image_display(args)
@@ -30,17 +30,12 @@ class Event < ApplicationRecord
   end
 
   def event_time
-    # date = Date.parse('start_date')
-    # time = Time.parse('start_time')
     date = start_date
     time = start_time
     event_time = date.to_datetime + time.seconds_since_midnight.seconds
 
     event_time.strftime('%A, %d %b %Y %l:%M %p')
   end
-  # time = DateTime.parse('14:00').strftime("%H:%M")
-  # date = Date.parse '1984-07-14'
-  # Date.new(2015, 2, 10).to_datetime + Time.parse("16:30").seconds_since_midnight.seconds
 
   def full_address
     "#{street}, #{suburb}, #{state} #{country_code}"

@@ -18,7 +18,6 @@
       <%= form.text_field :title, id: :event_title, placeholder: 'your event title goes here!', required: true %>
     </div>
   
-  
     <div class="inputfield">
       <span class="errors"><%= display_errors(event, :description) %><br/></span>
       <%= form.label :description, "Event description" %><br/>
@@ -29,12 +28,6 @@
       <span class="errors"><%= display_errors(event, :requirements) %><br/></span>
       <%= form.label :requirements, "Event requirements" %><br/>
       <%= form.text_area :requirements, id: :event_requirements, placeholder: 'does your event have any pre-requirements? do your attendees need to bring anything?' %>
-    </div>
-  
-    <div class="inputfield">
-      <span class="errors"><%= display_errors(event, :price) %><br/></span>
-      <%= form.label :price, "Event price (if any)" %><br/>
-      <%= form.text_field :price, id: :event_price, placeholder: 'eg. 0 for "free"', required: true %>
     </div>
   
     <div class="inputfield">
@@ -83,6 +76,12 @@
       <span class="errors"><%= display_errors(event, :location_details) %><br/></span>
       <%= form.label :location_details, "Additional location details" %><br/>
       <%= form.text_field :location_details, id: :event_location_details, placeholder: 'eg. Please buzz Apartment 13' %>
+    </div>
+          
+    <div class="inputfield">
+      <span class="errors"><%= display_errors(event, :price) %><br/></span>
+      <%= form.label :price, "Event price (if any)" %><br/>
+      <%= form.text_field :price, id: :event_price, placeholder: 'eg. 0 for "free"', required: true %>
     </div>
   
     <div>
