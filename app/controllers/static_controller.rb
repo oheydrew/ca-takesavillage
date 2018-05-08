@@ -1,14 +1,15 @@
 class StaticController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
   before_action :check_profile
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    @events = Event.all
+    authorize @events
   end
 
   def contact
   end
 
-  def contact_email
-
+  def donate
   end
 end
