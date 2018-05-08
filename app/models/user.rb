@@ -13,4 +13,5 @@ class User < ApplicationRecord
   # Event ownership
   has_many :events_owned, class_name: 'Event', foreign_key: :owner_id
 
+  has_many :payments
 end
