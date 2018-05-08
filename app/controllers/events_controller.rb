@@ -19,6 +19,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.duration = (@event.duration / 60) / 60
   end
 
   def create
@@ -52,6 +53,7 @@ class EventsController < ApplicationController
     authorize @event
     @event.destroy
     flash[:notice] = 'Workshop deleted'
+    redirect_to events_path
   end
 
   def attend

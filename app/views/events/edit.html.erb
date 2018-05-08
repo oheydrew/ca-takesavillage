@@ -2,6 +2,10 @@
 
 Event Owner: <%= @event.owner.email %> Event Title: <%= @event.title %><br/>
 
+<% if policy(@event).destroy? %>
+    <%= button_to 'Delete This Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button btn-medium' %><br/>
+<% end %>
+
 <%= render 'partials/event_edit_form', event: @event %>
 
 <%= link_to 'Back', root_path %>
