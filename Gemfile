@@ -27,6 +27,8 @@ gem 'country_select'
 gem 'ausburbs'
 # Use mailgun-rails for mailing
 gem 'mailgun-ruby'
+# Use stripe for payments
+gem 'stripe'
 
 # Use shrine for image upload management
 gem 'shrine' , '~> 2.11', '>= 2.11'

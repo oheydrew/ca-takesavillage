@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'static#contact'
   get 'donate', to: 'static#donate'
 
+  post 'checkout', to: 'payments#checkout'
+
   resources :payments, only: [:new, :create]
 
 

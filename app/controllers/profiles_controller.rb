@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
       redirect_to profile_path(current_user)
     else
       display_errors(@profile)
-      # flash[:warning] = 'Please enter the required fields'
+      flash[:warning] = 'Please enter the required fields'
       redirect_back fallback_location: new_profile_path
     end
   end
