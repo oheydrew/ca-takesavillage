@@ -5,11 +5,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :profiles
-  resources :static
 
   resources :events do
     post :attend, on: :member
     post :unattend, on: :member
   end
-  
+
+
+  get 'contact', to: 'static#contact'
+  get 'donate', to: 'static#donate'
+
+  resources :payments, only: [:new, :create]
+
+
 end
