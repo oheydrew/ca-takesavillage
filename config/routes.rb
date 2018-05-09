@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   get 'contact', to: 'static#contact'
+  post '/contact', to: 'static#contact_email'
+
   get 'donate', to: 'static#donate'
 
   resources :payments, only: [:index, :new, :create]
