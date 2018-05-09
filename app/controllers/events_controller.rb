@@ -4,8 +4,17 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @events = Event.all
-    authorize @events
+    if params[:search_terms].nil? || params[:search_terms] == ''
+      @events = Event.all
+    else
+      @events = Event.search_title(params[:search_terms])
+    end
+
+    if @events.nil? || @events == []
+      render :not_found
+    else
+      render :index
+    end
   end
 
   def show

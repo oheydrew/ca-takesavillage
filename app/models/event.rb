@@ -40,4 +40,22 @@ class Event < ApplicationRecord
   def full_address
     "#{street}, #{suburb}, #{state} #{country_code}"
   end
+
+  # SEARCH: Trying out scopes for search
+  scope :location, -> (search_term) { where("suburb ILIKE ?", "%#{search_term}%") }
+  scope :title_contains, -> (search_term) { where("title ILIKE ?", "%#{search_term}%") }
+
+  def self.search_title(search_terms)
+    words = search_terms.split(' ')
+    result = []
+
+    words.each do |word|
+      events = Event.title_contains(word)
+      events.each do |event|
+        result << event
+      end
+    end
+    result
+  end
+
 end
