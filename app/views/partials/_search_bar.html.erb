@@ -1,4 +1,9 @@
 <%= form_tag(events_path, method: :get) do %>
-  <%= text_field_tag :search_terms, params[:search_terms] %>
-  <%= submit_tag 'Search', name: nil %>
+  <div class="searchbar">
+    <%= text_field_tag :search_terms, params[:search_terms], placeholder: "try: 'juggling'" %>
+    <button type="submit" value="Submit" class="button btn-search" data-disable-with="Submit" >
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
 <% end %>
+

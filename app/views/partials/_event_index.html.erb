@@ -1,13 +1,7 @@
-<%= render 'partials/search_bar' %>
-
-<h1>(search box here)</h1>
-
-<div class="event-container">
-
+<div class="flex-wrap-row">
     <% if events.present? %>
         <% events.each do |event| %>
             <%= render 'partials/eventcard', event: event %>
         <% end %>
     <% end %>
-    
 </div>

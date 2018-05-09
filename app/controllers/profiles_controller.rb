@@ -8,7 +8,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    events_owned = Event.where('owner_id = ?', params[:id])
+    @events_current = events_owned.where('start_date >= ?', Date.today)
+    @events_past = events_owned.where('start_date < ?', Date.today)
 
+    # @events_current = Event.where('owner_id = ? AND start_date >= ?', params[:id], Date.today)
   end
 
   def edit

@@ -21,7 +21,7 @@
     <div class="inputfield">
       <span class="errors"><%= display_errors(event, :description) %><br/></span>
       <%= form.label :description, "Event description" %><br/>
-      <%= form.text_field :description, id: :event_description, placeholder: 'a full desciption of your event goes here!' %>
+      <%= form.text_area :description, id: :event_description, placeholder: 'a full desciption of your event goes here!' %>
     </div>
   
     <div class="inputfield">

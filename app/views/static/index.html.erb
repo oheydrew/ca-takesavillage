@@ -4,7 +4,8 @@
         <herofont>You know so many things!</herofont>
         <a href="<%= new_event_path %>"><div class='button btn-large'><herofont>Can you teach me?</herofont></div></a>
     </div>
-    
 </div>
+
+<%= render 'partials/search_bar' %>
 
 <%= render 'partials/event_index', events: @events %>

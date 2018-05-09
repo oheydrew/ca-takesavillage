@@ -1,6 +1,9 @@
-<h1>Hi <%= @user.profile.full_name %></h1>
+<h1>Hi there, friendly Admins!</h1>
 <p>
-    Here is your test email! Message follows:
+    Date: <%= time_tag Time.now %>
+</p>
+<p>
+    <%= @user.profile.full_name %> has sent you a message. It follows:
 </p>
 <p>
     <%= @message %>

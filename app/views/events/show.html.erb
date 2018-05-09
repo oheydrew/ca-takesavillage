@@ -1,26 +1,21 @@
+<div class="hero-header" id="event-hero">
+    <%= image_tag @event.image_display(:large), class: 'hero-image' %><br/>
+    <div class="hero-text"><herofont><%= @event.title %></herofont></div>
+</div>
 
-    <div class="hero-header" id="event-hero">
-        <%= image_tag @event.image_display(:large), class: 'hero-image' %><br/>
-        <div class="hero-text"><herofont><%= @event.title %></herofont></div>
-    </div>
+<%= render 'partials/search_bar' %>
 
-<div class="half">
-    <h1>(search box here)</h1>
+<div class="grid-content">
 
-    <% if policy(@event).update? %>
-        <div>
-            <a href="<%= edit_event_path %>"><div class='button btn-medium'>Edit Event</div></a> 
-        </div>
-        <p></p>
-    <% end %>
+    <div class="grid-section section-1" id="event-details">
 
-    
+        <% if policy(@event).update? %>
+            <div>
+                <a href="<%= edit_event_path %>"><div class='button btn-medium'>Edit Event</div></a> 
+            </div>
+            <p></p>
+        <% end %>
 
-    <h1>
-        <%= @event.title %>
-    </h1>
-
-    <div class="section" id="event-details">
         <div class="card eventdetails">
             <strong>Price:</strong> <%= @event.price > 0 ? dollars(@event.price) : "Free!" %><br/>
             <strong>When:</strong> <%= @event.start_date %>, <%= @event.event_time %><br/>
@@ -28,26 +23,30 @@
             <strong>Where:</strong> <%= @event.street %><br/>
                                     <%= @event.suburb %> <%= @event.state %><br/>
             <strong>Taught by:</strong> <%= link_to @event.owner.profile.full_name, profile_path(@event.owner.profile) %><br/>
-        </div>
+        </div><br/>
 
         <%= attendance_button(@event) %>
     </div>
  
-    <div class="section" id="event-description">
+    <div class="grid-section section-2" id="event-description">
         <h1>
             What's it all about?
         </h1>
 
-        <%= @event.description %>
+        <div class="text-section">
+            <%= @event.description %>
+        </div>
 
         <h1>
             What do I need? to bring?
         </h1>
 
-        <%= @event.requirements %>
+        <div class="text-section">
+            <%= @event.requirements %>
+        </div>
     </div>
 
-    <div class="section" id="event-wherewhen">
+    <div class="grid-section section-3" id="event-whowhere">
         <h1>
             Who's teaching this?
         </h1>
@@ -83,8 +82,7 @@
         </div>
     </div>
 
-    <div class="section" id="attendance">
-
+    <div class="grid-section section-4" id="attendance">
         <h1>
             Who's going?
         </h1>
@@ -97,6 +95,9 @@
                 <% end %>
             <% end %>
         </div>
+    </div>
+
+    <div class="grid-section section-5">
     </div>
 
 </div>
