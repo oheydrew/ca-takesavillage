@@ -1,8 +1,7 @@
-<h1>Checkout</h1>
+<h1>Payment confirmation:</h1>
 
-Amount: <%= @payment.amount %> cents <br/>
+For: <%= @payment.user.profile.full_name %><br/>
 Description: <%= @payment.description %> <br/>
-User: <%= @payment.user.profile.full_name %>
 
 <hr>
 

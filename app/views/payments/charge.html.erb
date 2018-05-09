@@ -1,8 +1,9 @@
 <h1>Reciept</h1>
+<h4>Thankyou so much for your generous donation.</h4>
 
-Amount: <%= @payment.amount %> cents <br/>
+<%= "Payment successful!" if @payment.charge %><br/>
+For: <%= @payment.user.profile.full_name %><br/>
+Amount: $<%= @payment.amount / 100.00 %> <br/>
 Description: <%= @payment.description %> <br/>
-User: <%= @payment.user.profile.full_name %>
-Charge: <%= @payment.charge %>
 
-<hr>
+<%= button_to 'Back to it!', root_path, class: 'button btn-medium', method: :get %>

@@ -4,15 +4,19 @@ class PaymentsController < ApplicationController
   before_action :check_profile
   skip_before_action :authenticate_user!, only: [:index]
 
+  def index
+    redirect_to new_payment_path
+  end
+
   def new
-    @payment = Payment.new
-    @payment.description = "One Time Donation"
+    @payment = Payment.new(user: current_user)
   end
 
   def create
     @payment = Payment.new(payment_params)
     @payment.user = current_user
     @payment.amount = @payment.amount.to_i * 100
+    @payment.description = "One Time Donation"
 
     if @payment.save
       flash[:event] = 'Payment saved successfully'
@@ -29,6 +33,8 @@ class PaymentsController < ApplicationController
   def charge
     @payment = Payment.find(params[:payment_id])
     user = User.find(@payment.user_id)
+    amount = @payment.amount
+    description = @payment.description
 
     if user.stripe_id.nil?
       customer = Stripe::Customer.create(
@@ -38,15 +44,15 @@ class PaymentsController < ApplicationController
     else
       customer = Stripe::Customer.retrieve(user.stripe_id)
     end
-  
+
     user.stripe_id = customer.id
     user.save
 
     begin
       charge = Stripe::Charge.create(
-        customer: @payment.user.stripe_id,
-        amount: @payment.amount,
-        description: @payment.description,
+        customer: customer,
+        amount: amount,
+        description: description,
         currency: 'aud'
       )
 

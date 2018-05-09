@@ -11,15 +11,19 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.text_field :amount, id: :payment_amount, placeholder: 'amount' %>
+  <div class="inputfield">
+    <%= form.label :amount, 'Amount (minimum $5.00)' %>
+    <%= form.text_field :amount, id: :payment_amount, placeholder: 'eg. 5.00', value: '5.00' %>
   </div>
 
-  <div>
-    <%= form.text_field :description, id: :payment_description, placeholder: 'description' %>
+  <div class="inputfield">
+    For: <br/>
+    'One Time Donation'
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= button_to 'Back to it!', root_path, class: 'button btn-medium', method: :get %>

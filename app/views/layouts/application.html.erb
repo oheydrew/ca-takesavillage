@@ -26,8 +26,13 @@
             <div class="notice"><%= flash[:notice] %></div>
           <% end %>
           <%= yield %>
-          <div class="coverleft"></div>
-          <div class="coverright"></div>
+          <div class="footer">
+              <h3>A call for your support:</h3>
+              At TakesAVillage believe in the power of community involvement and grassroots participation. As such, many of the workshops listed here are free of charge, for teachers and attendees. Keeping a site like this online has it's costs, and we'd really appreciate any donations you can afford to help us keep the site running. Thankyou!
+              <div class="foot-buttons">
+                <%= button_to 'Donate Now', new_payment_path, class: 'button btn-small', method: :get %>  <%= button_to 'Contact Us', contact_path, class: 'button btn-small', method: :get %>
+              </div>
+          </div>
         </div>
       </div>
     </div>

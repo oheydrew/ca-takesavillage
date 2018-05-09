@@ -509,6 +509,22 @@ input[type="submit"] {
       transform: translateX(-50%) translateY(-50%);
 }
 
+.footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 400px;
+    .foot-buttons {
+        width: 330px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 @media (min-width: 700px) { 
     
     herofont {
