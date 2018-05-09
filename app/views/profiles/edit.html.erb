@@ -1,9 +1,16 @@
 <h1>Edit Profile</h1>
+<div class="grid-content">
 
-Profile for: <%= @profile.user.email %> Profile #: <%= @profile.id %><br/>
+    <div class="grid-section section-1">
 
-<%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %>
+        <%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %>
 
-<%= render 'partials/profile_edit_form', profile: @profile %>
+    </div>
 
-<%= link_to 'Back', profile_path %>
+    <div class="grid-section section-2">
+        <%= render 'partials/profile_edit_form', profile: @profile %>
+
+        <%= button_to 'Back', profile_path, class: 'button btn-small', method: :get %>
+    </div>
+
+</div>

@@ -3,21 +3,25 @@
 <div class="grid-content">
 
     <div class="grid-section section-1">
-        
+    
+        <%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %><br/>
+    
+        <h1 class="h1-lessmargin"><%= @profile.full_name %></h1><br/>
+        <h4><%= @profile.tagline %></h4><br/>
+        <%= "#{@profile.suburb.titleize}" if @profile.suburb %><%= ", #{@profile.country_code.titleize}" if @profile.country_code %>
+
+
+    </div>
+
+    <div class="grid-section section-2">
+            
         <% if policy(@profile).update? %>
                 <div class="flex-wrap-row">
                     <a href="<%= edit_profile_path %>"><div class='button btn-medium'>Edit Profile</div></a> 
                 </div>
                 <p></p>
         <% end %>
-    
-        <%= image_tag @profile.avatar_display(:small), class: 'round border maxmobile' %><br/>
-    
-        <h1><%= @profile.full_name %></h1>
-        <h4><%= @profile.tagline %></h4>
-    </div>
 
-    <div class="grid-section section-2">
         <div class="card">
         <% if @profile.website %>
             <strong>Website:</strong> <%= link_to @profile.website %><br/>

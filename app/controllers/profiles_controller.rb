@@ -44,9 +44,11 @@ class ProfilesController < ApplicationController
     authorize @profile
     if @profile.update(profile_params)
       flash[:notice] = 'Profile Updated'
+      redirect_to profile_path(@profile)
     else
       display_errors(@profile)
-      flash[:warning] = 'Please enter the required fields'
+      flash[:warning] = "Oops! Something's not right. Have a double check..."
+      render :edit
     end
   end
 
@@ -76,7 +78,10 @@ class ProfilesController < ApplicationController
                                       :bio,
                                       :website,
                                       :email_show,
-                                      :avatar
+                                      :avatar,
+                                      :suburb,
+                                      :state,
+                                      :country_code
                                     ])
   end
 end

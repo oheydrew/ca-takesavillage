@@ -15,27 +15,55 @@
     <%= form.label :avatar_data %><br/>
     <%= form.hidden_field :avatar, value: profile.cached_avatar_data %>
     <%= form.file_field  :avatar, id: :profile_avatar_data, class:'file_field_hide' %>
-    <label for='profile_avatar_data'>Select a file</label>
+    <label for='profile_avatar_data'>Upload New Avatar</label>
   </div>
 
-  <div>
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :first_name) %><br/></span>
+    <%= form.label :first_name, "First name" %><br/>
     <%= form.text_field :first_name, id: :profile_first_name, placeholder: 'first_name' %>
   </div>
 
-  <div>
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :last_name) %><br/></span>
+    <%= form.label :last_name, "Last name" %><br/>
     <%= form.text_field :last_name, id: :profile_last_name, placeholder: 'last_name' %>
   </div>
 
-  <div>
-    <%= form.text_area :bio, id: :profile_bio, placeholder: 'your biography' %>
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :tagline) %><br/></span>
+    <%= form.label :tagline, "Short tagline" %><br/>
+    <%= form.text_field :tagline, id: :profile_tagline, placeholder: "keep it short eg. 'Teacher by day, Student by Night.'" %>
   </div>
 
-  <div>
-    <%= form.text_field :tagline, id: :profile_tagline, placeholder: 'your short tagline' %>
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :bio) %><br/></span>
+    <%= form.label :bio, "Biography" %><br/>
+    <%= form.text_area :bio, id: :profile_bio, rows: '3', class: 'textarea', placeholder: 'describe yourself in more words here. Use your elevator pitch, your twitter bio, something funny, anything!' %>
   </div>
 
-  <div>
-    <%= form.text_field :website, id: :profile_website, placeholder: 'your website' %>
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :website) %><br/></span>
+    <%= form.label :website, "Website" %><br/>
+    <%= form.text_field :website, id: :profile_website, placeholder: 'your website url' %>
+  </div>
+
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :suburb) %><br/></span>
+    <%= form.label :suburb, "Town/Suburb" %><br/>
+    <%= form.text_field :suburb, id: :profile_suburb, placeholder: 'your suburb' %>
+  </div>
+
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :state) %><br/></span>
+    <%= form.label :state, "State" %><br/>
+    <%= form.text_field :state, id: :profile_state, placeholder: 'your state' %>
+  </div>
+
+  <div class="inputfield">
+    <span class="errors"><%= display_errors(profile, :country_code) %><br/></span>
+    <%= form.label :country_code, "Country" %><br/>
+    <%= form.country_select :country_code, id: :profile_country_code, priority_countries: ['AU', "NZ"] %>
   </div>
 
   <div>
