@@ -37,6 +37,8 @@
     --shadow-warning: 0 0 10px rgba(241, 18, 40, 0.8);
 }
 
+
+
 * {
     box-sizing: border-box;
 }
@@ -127,7 +129,10 @@ body {
     align-items: center;
 
     box-shadow: var(--shadow-outline);
+
 }
+
+
 
 // Attempting to cover the ugly blur artifacts. No success
 // .coverleft {
@@ -159,7 +164,7 @@ logofont {
 herofont {
     font-family: var(--font-serif);
     font-weight: bold;
-    font-size: 28px;
+    font-size: 22px;
     text-shadow: var(--shadow-material);
 }
 
@@ -185,16 +190,18 @@ herofont {
         float: left;
         position: absolute;
         width: 100%;
-        height: 125px;
+        min-height: 150px;
         left: 50%;
         margin-left: -50vw;
-        top: 150px;
+        top: 130px;
         z-index: 0;
 
         padding: 5px;
         color: #FFFFFF;
         font-weight: bold;
         
+        background-color: rgba(0, 0, 0, 0.2);
+
         -webkit-backdrop-filter: blur(10px);
         -moz-backdrop-filter: blur(10px);
         -o-backdrop-filter: blur(10px);
@@ -362,8 +369,8 @@ textarea, input, select {
         width: 150px;
     }
     &.btn-large {
-        width: 300px;
-    }
+        min-width: 300px;
+     }
     &.btn-wide {
         min-width: 100%;
     }
@@ -502,3 +509,10 @@ input[type="submit"] {
       transform: translateX(-50%) translateY(-50%);
 }
 
+@media (min-width: 700px) { 
+    
+    herofont {
+        font-size: 32px;
+    }
+    
+}

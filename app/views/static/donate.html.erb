@@ -1,6 +1,6 @@
 <h1>Donate To TakesAVillage</h1>
 
-<%= form_with url: checkout_path do |form| %>
+<%= form_with url: :payments do |form| %>
     <%= form.label :amount %>
     <%= form.text_field :amount %>
     <%= form.label :description %>

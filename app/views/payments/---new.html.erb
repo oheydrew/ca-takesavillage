@@ -1,0 +1,27 @@
+<h1>New Payment</h1>
+
+<% payment_info = params[:payment_info] %>
+
+<%= form_with url: payments_path do |form| %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%= number_to_currency(payment_info[:amount].to_i / 100) %></span>
+    </label>
+    <% form.hidden_field :payment_info, value: payment_info %>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="<%= payment_info[:description] %>"
+          data-amount="<%= payment_info[:amount] %>"
+          data-locale="auto">
+  </script>
+<% end %>
+
+<%#= params[:description] %>
+<%#= params[:amount] %>
