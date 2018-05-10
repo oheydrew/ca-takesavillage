@@ -17,13 +17,13 @@ The creator of this app has experiences this, many times. I believe that through
 - [Solution](#solution)
   - [Business Plan](#business-plan)
 - [User Stories](#user-stories)
-  - [* **LINK TO USER STORIES BOARD** *](#-link-to-user-stories-board-)
+  - [**[Trello Board - User Stories](https://trello.com/b/cFwrUsEK)**](#trello-board---user-storieshttpstrellocombcfwrusek)
   - [User Profiles](#user-profiles)
   - [User Journeys](#user-journeys)
 - [Trello Board](#trello-board)
   - [Feature Compilation](#feature-compilation)
   - [Main CANBAN](#main-canban)
-  - [* **LINK TO MAIN CANBAN BOARD** *](#-link-to-main-canban-board-)
+  - [**[Link to CANBAN Trello](https://trello.com/b/3ZmpLFGa)**](#link-to-canban-trellohttpstrellocomb3zmplfga)
 - [Features](#features)
   - ["Need"](#need)
   - ["Want"](#want)
@@ -90,7 +90,7 @@ Free members can have quick, easy events created with a maximum of 10 attendees.
 Premium members will (when implemented) have the ability to hold larger events, with advanced planning features and mailouts, as well as charging ticket prices through the app.
 
 ## User Stories
-### * **LINK TO USER STORIES BOARD** *
+### **[Trello Board - User Stories](https://trello.com/b/cFwrUsEK)**
 
 The first stage of development was the user stories stage. I needed to come up with ways that the users might want to use my application, from various perspectives. I worked together with some classmates to help one another brainstorm ideas for user profiles and some ideas of user stories and journeys.
 
@@ -120,7 +120,7 @@ From these User Stories I really got a feel for the features I might need- it wa
 <a href="docs/features-userstories.png" target="_blank"><img alt="User Stories" src="docs/features-userstories.png" width="800"></a>
 
 ### Main CANBAN
-### * **LINK TO MAIN CANBAN BOARD** *
+### **[Link to CANBAN Trello](https://trello.com/b/3ZmpLFGa)**
 
 Now, it was time to move them into my main CANBAN board, a separate Trello board which held all my workflow. CANBAN helps me so much in staying focussed- and I also used [PomoDoneApp](https://www.pomodoneapp.com/) as a Pomodoro Timer that linked into my Trello cards.
 
