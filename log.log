@@ -1,0 +1,72 @@
+6c9cf96 2018-05-04 11:09:58 +1000: Initial commit
+4087cf3 2018-05-04 11:17:48 +1000: Add docs images
+95e81ea 2018-05-04 11:18:05 +1000: Update README.md
+0acb92b 2018-05-04 11:25:21 +1000: Update README.md
+6aedaf6 2018-05-04 11:26:27 +1000: Update README.md
+914a3c5 2018-05-04 12:04:10 +1000: Update Gemfile
+b4690d2 2018-05-04 12:23:08 +1000: Update .gitignore
+09171aa 2018-05-04 12:30:54 +1000: Install rspec, devise, pundit
+ce184f8 2018-05-04 12:34:16 +1000: Config files for rspec, factory_bot, shoulda_matchers
+bad0058 2018-05-04 12:42:49 +1000: Config files for pundit
+9625074 2018-05-04 12:53:21 +1000: Add shrine config, shrine image_uploader class with image_processing
+e07ee51 2018-05-04 13:10:56 +1000: Devise: Install, Views
+de85438 2018-05-04 13:45:35 +1000: Add profile model
+90ac10f 2018-05-04 14:53:38 +1000: Add basic styles
+6089f81 2018-05-04 17:11:03 +1000: Update CSS
+9e30279 2018-05-04 17:38:58 +1000: Update CSS
+1304da2 2018-05-04 17:39:35 +1000: Add basic profile model, logic
+166bea5 2018-05-05 12:31:41 +1000: Update basic layout + CSS
+c339dbd 2018-05-05 12:32:36 +1000: Update profile routes, basic profile info
+999c1f2 2018-05-05 16:15:33 +1000: Update profiles logic, frontend, routing
+d97e25a 2018-05-05 16:31:29 +1000: Add pundit policies to profiles
+3175513 2018-05-05 18:59:22 +1000: Update CSS, layout
+592a2dd 2018-05-05 19:15:48 +1000: Create migration profiles - add website, email_show
+04805ec 2018-05-05 20:26:35 +1000: Update controller, views for new website, email_show migration
+9076222 2018-05-05 20:27:03 +1000: Update schema: profile migration
+032a63a 2018-05-05 20:27:28 +1000: Update CSS, navbar
+7195a63 2018-05-05 20:37:22 +1000: Add Gemfile.lock
+7a616d7 2018-05-06 12:21:38 +1000: Process docs images for smaller files
+d74e826 2018-05-06 12:22:52 +1000: Add aws-sdk-s3 gem. Add validation to shrine
+2019017 2018-05-06 12:29:46 +1000: Add docs/ to gitignore, remove historical files
+24fca7b 2018-05-06 12:34:08 +1000: Remove public/uploads historical files
+49004a9 2018-05-06 14:34:51 +1000: Add s3-bucket uploading to Shrine
+0654f67 2018-05-06 18:55:53 +1000: Update Gemfile
+1019940 2018-05-06 18:56:56 +1000: Update profiles uniquess validity
+bbc8488 2018-05-06 18:57:36 +1000: Add migrations: tickets, events
+f872e13 2018-05-06 20:02:08 +1000: Add event, ticket model relationships
+8634e4e 2018-05-06 20:17:44 +1000: Add event model relationships
+a4d9ca2 2018-05-06 21:17:28 +1000: Add events controller. Modify profiles controller.
+1684a55 2018-05-06 21:17:50 +1000: Add event policy
+bf6fe98 2018-05-06 23:11:36 +1000: Add event show view
+0aa9d7c 2018-05-07 10:32:56 +1000: Update event show erb
+ebe404c 2018-05-07 11:29:19 +1000: Update event show
+674dba2 2018-05-07 11:29:43 +1000: Add columns to events, profiles
+0fe076d 2018-05-07 11:31:14 +1000: Add static_map helper
+dba795d 2018-05-07 13:41:31 +1000: Add event update form
+86faf4c 2018-05-07 13:43:36 +1000: Update Gemfile: validates_timeliness
+5c87932 2018-05-07 17:20:53 +1000: Update styles: Add hero banner, fix up layout positioning
+28d317f 2018-05-07 17:23:09 +1000: Update events: Add error displaying to forms
+21f84db 2018-05-07 17:24:15 +1000: Add validates_timeliness funtionality
+0cb092d 2018-05-07 18:27:04 +1000: Update event form validation
+57233c9 2018-05-07 18:44:26 +1000: Update event edit form
+788ef59 2018-05-07 19:26:25 +1000: Add event new, index pages and controllers
+d8a8bf8 2018-05-07 20:44:56 +1000: Add event index, display event cards
+fbcc1b9 2018-05-07 21:43:20 +1000: Add event table migration: default values
+b40dfdb 2018-05-08 12:33:58 +1000: Add pry
+4d464ac 2018-05-08 12:35:46 +1000: Update events, tickets and event duration logic
+2e35647 2018-05-08 12:36:08 +1000: Update event policies
+fa5f456 2018-05-08 13:11:36 +1000: Add delete event option, duration displayed
+09ac80d 2018-05-08 13:23:26 +1000: Add payment model
+343b217 2018-05-08 13:52:46 +1000: Update event index- Move to partial
+f582c5e 2018-05-08 13:53:34 +1000: Add payment model
+f055678 2018-05-08 13:54:03 +1000: Create static pages
+9f83f9d 2018-05-08 14:54:26 +1000: Update donation, static pages
+65c6670 2018-05-08 20:05:49 +1000: Update Stripe payments, payments table
+5a21608 2018-05-09 11:54:41 +1000: Add Stripe Payments - Payments working
+f749d24 2018-05-09 13:21:40 +1000: Add donations flavour text, styles
+58b917f 2018-05-09 15:40:14 +1000: Add mailgun setup config, mailgun templates
+b2d5072 2018-05-09 15:57:52 +1000: Remove pry for production push
+ba6a6e9 2018-05-09 18:07:33 +1000: Add basic event search by title
+472a805 2018-05-09 22:06:14 +1000: Update CSS, formatting, layout
+e15d49f 2018-05-10 00:17:09 +1000: Update styles, layout
+018b7fb 2018-05-10 22:09:52 +1000: Modify profiles ontroller logic to catch bug

@@ -7,9 +7,6 @@
 # Ignore public/uploads (shrine uploaded files)
 /public/uploads/
 
-# Ignore docs images
-/docs/
-
 # Ignore .dev-tests/
 .dev-tests/
 
