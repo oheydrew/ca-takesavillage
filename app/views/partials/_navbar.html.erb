@@ -19,7 +19,7 @@
         </div> 
         <div class="subitem">|</div>
         <div class="subitem">
-            <a href="<%= profile_path(current_user) %>"><%= image_tag current_user.profile.avatar_display(:thumb), class: 'round border', height:'40px' %></a>
+            <a href="<%= profile_path(current_user) %>"><%= image_tag current_user.profile.avatar_display(:thumb), class: 'border round-small', height:'40px' %></a>
         </div>
     <% end %>
 </div>

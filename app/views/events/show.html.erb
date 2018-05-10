@@ -62,7 +62,7 @@
         </h1>
         <div class="card teacher details">
             <div class="card-left">
-                <%= link_to (image_tag @event.owner.profile.avatar_display(:thumb), class: 'round border maxmobile'), profile_path(@event.owner.profile) %>
+                <%= link_to (image_tag @event.owner.profile.avatar_display(:thumb), class: 'round-medium border maxmobile'), profile_path(@event.owner.profile) %>
             </div>
             <div class="card-right">
                 <h2>
@@ -102,7 +102,7 @@
             <% if @event.users_attending %>
                 <% @event.users_attending.each do |user| %>
                     <div class="attendee">
-                        <%= link_to (image_tag user.profile.avatar_display(:small), class: 'round border'), profile_path(user.profile) %> 
+                        <%= link_to (image_tag user.profile.avatar_display(:small), class: 'round-small border'), profile_path(user.profile) %> 
                         <h2><%= link_to (user.profile.full_name), profile_path(user.profile) %></h2>
                     </div>
                 <% end %>
