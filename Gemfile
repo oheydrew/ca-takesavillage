@@ -29,6 +29,8 @@ gem 'ausburbs'
 gem 'mailgun-ruby'
 # Use stripe for payments
 gem 'stripe'
+# pry for debugging
+gem 'pry'
 
 # Use shrine for image upload management
 gem 'shrine' , '~> 2.11', '>= 2.11'

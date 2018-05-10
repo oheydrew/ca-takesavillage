@@ -1,3 +1,5 @@
+require 'pry'
+
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :check_profile, except: [:new, :create]
@@ -16,10 +18,10 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    authorize @profile
     if @profile.nil?
-      @profile = Profile.find_or_initialize_by(user: current_user)
+      @profile = Profile.new(user_id: current_user.id)
     end
+    authorize @profile
   end
 
   def new
@@ -28,7 +30,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    @profile.user = current_user
+    @profile.user_id = current_user.id
 
     if @profile.save
       flash[:notice] = 'New Profile Created'

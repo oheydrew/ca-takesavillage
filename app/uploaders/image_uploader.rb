@@ -2,7 +2,7 @@ require "image_processing/mini_magick"
 
 class ImageUploader < Shrine
   plugin :processing
-  plugin :versions#, names: [:original, :large, :small, :thumb]  # enable Shrine to handle a hash of files
+  plugin :versions
   plugin :delete_raw # delete processed files after uploading
   plugin :validation_helpers
 
